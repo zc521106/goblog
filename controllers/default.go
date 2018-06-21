@@ -16,7 +16,7 @@ var o orm.Ormer
 
 func init() {
 	orm.RegisterDataBase("default", "mysql", "root:MysqlPsw1!@tcp(39.106.15.201:3306)/go_test?charset=utf8", 30)
-	// 注册要在同步数据库之前 否则会报错
+	// 注册要在同步数据库之前 否则会报错，至少要注册一个model
 	orm.RegisterModel(new(Article))
 	orm.RunSyncdb("default", false, true)
 	o = orm.NewOrm()
