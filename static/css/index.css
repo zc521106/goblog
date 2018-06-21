@@ -1,0 +1,259 @@
+/*left*/
+.main .left {
+    float: left;
+    width: 66%;
+}
+/*one two*/
+.main .one, .main .two {
+    margin-bottom: 20px;
+    border-bottom: 1px solid #3b4249;
+}
+.main .one {
+    border-bottom: 1px solid #3b4249;
+}
+.one_left {
+    width: 55%;
+    float: left;
+}
+.one_left img {
+    border-radius: 5px;
+}
+.one_left img:hover {
+    opacity: 0.9;
+    -webkit-transition: All 0.5s ease;
+}
+.one_left .left_title {
+    margin: 5px 2px 5px 2px;
+    font-size: 22px;
+    color: #DCF;
+}
+.one_left .left_title:hover {
+    font-weight: bolder;
+}
+.one_left .left_content {
+    font-size: 14px;
+    color: #999;
+    text-indent: 28px;
+}
+.one_right {
+    width: 40%;
+    float: left;
+    margin-left: 3%;
+}
+.one_right .right_list li {
+    font-size: 14px;
+    height: 40px;
+    line-height: 40px;
+    border-bottom: 1px dotted #3b4249;
+    list-style-type: none;
+}
+.one_right .right_list li:last-child {
+    border-bottom: none;
+    overflow: hidden;
+}
+.one_right .right_list li:hover {
+    font-weight: bolder;
+}
+.one_right .right_list li a:first-child {
+    float: left;
+    width: 200px;
+}
+.one_right .right_list li a:last-child {
+    float: right;
+    width: 83px;
+}
+/*two*/
+/*two - left*/
+.two_left {
+    width: 50%;
+    float: left;
+}
+.two_title {
+    font-weight: bolder;
+    height: 30px;
+    line-height: 30px;
+    border-bottom: 2px solid #444;
+    margin-bottom: 10px;
+}
+.two_more {
+    float: right;
+    color: #aa5500;
+    margin-right: 5px;
+    font-size: 15px;
+}
+.newEasyList, .newResourceList {
+    font-size: 14px;
+    margin-bottom: 30px;
+}
+.newEasyList div.easyItem, .newResourceList div.resourceItem {
+    width: 100%;
+    min-height: 30px;
+    margin: 5px 0;
+}
+.easyItem div, .resourceItem div {
+    float: left;
+    line-height: 20px;
+}
+.easyItem .easyNum, .resourceItem .resourceNum {
+    width: 8%;
+}
+.easyItem .easyTitle, .resourceItem .resourceTitle {
+    width: 90%;
+}
+.newEasyList a:hover, .newResourceList a:hover {
+    color: #00c1de;
+}
+/*two - right*/
+.two_right {
+    width: 45%;
+    float: left;
+    margin-left: 3%;
+}
+.news {
+    margin-bottom: 20px;
+}
+.newsItem {
+    margin-bottom: 10px;
+    border-bottom: 1px dotted #3b4249;
+}
+.newsTitle {
+    font-weight: bolder;
+}
+.newsContent {
+    font-size: 14px;
+}
+.newsContent p {
+    text-indent: 28px;
+    color: #999;
+}
+
+.newsPic {
+    float: left;
+    width: 18%;
+}
+.newsPic img {
+    width: 100%;
+    height: 50px;
+    border-radius: 2px;
+}
+.newsPic img:hover {
+    opacity: 0.7;
+    -webkit-transition: All 0.5s ease;
+}
+.newsTitle {
+    float: right;
+    width: 80%;
+}
+.newsTitle a p {
+    /*color: #9b9ea0;*/
+    font-size: 15px;
+    font-weight: 300;
+}
+.newsTitle a p:hover {
+    color: #00c1de;
+}
+
+/*right*/
+.main .right {
+    margin-left: 5px;
+    float: left;
+    width: 32%;
+    min-height: 1000px;
+    border-left: 2px solid #3b4249;
+    padding-left: 15px;
+}
+.rightBox {
+    margin-bottom: 20px;
+}
+.rightTitle {
+    font-weight: bolder;
+    height: 30px;
+    line-height: 30px;
+    border-bottom: 2px solid #444;
+    margin-bottom: 10px;
+    text-indent: 2px;
+}
+.classesList a, .newsClassesList a {
+    font-size: 14px;
+    float: left;
+    width: 50px;
+    height: 25px;
+    line-height: 25px;
+    text-align: center;
+}
+.classesList a:hover,.newsClassesList a:hover,.scanArticlesList a:nth-child(odd):hover {
+    color: #00c1de;
+    /*color: #96aecd;*/
+}
+.ad img {
+    display: block;
+    margin: 0 auto;
+    border-radius: 2px;
+}
+.scanArticlesList a {
+    font-size: 14px;
+    float: left;
+    width: 76%;
+    height: 30px;
+    line-height: 30px;
+    overflow: hidden;
+}
+.scanArticlesList a:nth-child(odd) {
+    margin-left: 1%;
+}
+.scanArticlesList a:nth-child(even) {
+    float: right;
+    width: 22%;
+    text-align: center;
+}
+.contactUs img {
+    display: block;
+    margin: 5px auto;
+    border-radius: 5px;
+}
+.friendLinkList {
+    border: 1px solid #444;
+    /*background: #555;*/
+    background: rgba(60,60,60,.4);
+    padding: 5px;
+    border-radius: 2px;
+}
+#applyURL {
+    cursor: pointer;
+}
+.friendLinkList a {
+    font-size: 14px;
+    float: left;
+    min-width: 50px;
+    height: 25px;
+    line-height: 25px;
+    text-align: center;
+    padding: 0 5px;
+}
+.friendLinkList a:hover {
+    color: #96aecd;
+}
+
+
+#applyUrlDiv p span, #applyUrlDiv p input {
+    color: #333333;
+}
+
+/*layer Title*/
+body .loginMini .layui-layer-title{
+    height: 40px!important;
+    line-height: 36px!important;
+    background: #333!important;
+    color: #fff!important;
+    border: 0!important;
+    text-align: center;
+    font-size: 18px;
+    margin-left: 100px;
+}
+
+
+
+
+.newResource {
+    /*display: none;*/
+}

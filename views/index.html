@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="utf-8"/>
+    <title>iBlog 爱博客</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta name="keywords" content="iBlog" />
+    <meta name="description" content="iBlog" />
+    <link href="/images/logo_32X32.ico" rel="shortcut icon">
+    <link href="/css/base.css" rel="stylesheet"/>
+    <link href="/css/index.css" rel="stylesheet"/>
+   <!-- <script>
+        function browserRedirect() {
+            var flag = null;
+            var sUserAgent = navigator.userAgent.toLowerCase();
+            var bIsIpad = sUserAgent.match(/ipad/i) == "ipad";
+            var bIsIphoneOs = sUserAgent.match(/iphone os/i) == "iphone os";
+            var bIsMidp = sUserAgent.match(/midp/i) == "midp";
+            var bIsUc7 = sUserAgent.match(/rv:1.2.3.4/i) == "rv:1.2.3.4";
+            var bIsUc = sUserAgent.match(/ucweb/i) == "ucweb";
+            var bIsAndroid = sUserAgent.match(/android/i) == "android";
+            var bIsCE = sUserAgent.match(/windows ce/i) == "windows ce";
+            var bIsWM = sUserAgent.match(/windows mobile/i) == "windows mobile";
+            if (bIsIpad || bIsIphoneOs || bIsMidp || bIsUc7 || bIsUc || bIsAndroid || bIsCE || bIsWM) {
+                flag = false;
+            } else {
+                flag = true;
+            }
+            return flag;
+        }
+        if(!browserRedirect()) {
+            var u = window.location.href;
+            if (u.indexOf('iBlog') == -1) {
+                window.location.href = '/m/iBlog/';
+            } else {
+                window.location.href = u.replace('/iBlog/', '/m/iBlog/');
+            }
+        }
+    </script>-->
+    <script type="text/javascript" src="/js/jquery-1.8.2.js"></script>
+    <script type="text/javascript" src="/js/scroll.js"></script>
+    <script type="text/javascript" src="/js/util.js"></script>
+
+</head>
+<body>
+<header>
+  <div class="top">
+      <div class="gg">
+          <span class="gg_a">公告：<span class="gg_content" id="gg_content" utext="${announcement}">9999999999999</span></span>
+      </div>
+    <!--<div class="noLoginDiv">
+      <a class="noLogin" href="javascript:;">您还未登录！</a><a class="login" id="doLogin" href="javascript:;">登录</a><a class="register" id="doRegister" href="../admin/register.html" target="_blank">注册</a>
+    </div>
+    <div class="loginDiv" id="loginDiv">
+      <a class="username" href="/admin/adminIndex.html" target="_blank" title="点击进入后台管理">
+          <img id="userHead" width="20px" height="20px" style="border-radius: 2px;" src="/images/a_img/a_300x100.png"/>
+      </a>
+      <a class="username" id="username" href="/Blog/user/myBlog/0" target="_blank" title="点击进入个人主页"></a>
+      <a class="message" id="msgNum" href="javascript:;" title="暂无消息">消息(<span id="unReadNum">0</span>)</a>
+      <a class="exit" id="exit" href="javascript:;">退出</a>
+    </div>-->
+  </div>
+  <div class="logo">
+    <div class="logoImg">
+      <a href="/"><img height="80px" src="/images/logo/logo5.png"/></a>
+    </div>
+  </div>
+  <!--<div class="menu">
+    <a class="current" href="/iBlog/">首页</a>
+    <a class="" href="/iBlog/articles.html">博文</a>
+    &lt;!&ndash;<a class="" href="/iBlog/index.html">资源库</a>
+    <a class="" href="/iBlog/index.html">新闻资讯</a>&ndash;&gt;
+      <a class="" href="/iBlog/news.html">新闻资讯</a>
+      <a class="" href="/iBlog/tools.html">工具箱</a>
+    <a class="" href="/iBlog/leave_msg.html">留言板</a>
+    <a class="" href="/iBlog/about_me.html">关于本站</a>
+  </div>-->
+</header>
+<div class="main">
+  <div class="left">
+    <div class="one">
+      <div class="one_left" id="topInfo1">
+          <a href="/article/{{.firstBlog.Id}}" target="_blank"> <img width="100%" height="250px" src="{{.firstBlog.MainPic}}">
+              <p class="left_title" title="{{.firstBlog.Title}}">{{.firstBlog.Title}}</p>
+              <p class="left_content">{{.firstBlog.SimpleContent}}</p>
+          </a>
+      </div>
+      <div class="one_right">
+      {{range .hotBlog}}
+        <ul class="right_list" id="topInfo2">
+            <li><a href="/article/{{.Id}}" target="_blank" title="{{.Title}}">{{.Title}}</a><a
+                    href="javascript:;">{{date .CreateTime "Y-m-d"}}</a>
+            </li>
+        </ul>
+      {{end}}
+      </div>
+    </div>
+    <div class="two">
+      <div class="two_left">
+        <div class="newEasy">
+          <p class="two_title">最新博文<a class="two_more" href="/articles.html" target="_blank">更多+</a></p>
+          <div class="newEasyList" id="newEasyList">
+              <div class="easyItem" each="b, i:${newBlog}">
+                  <div class="easyNum" text="${#numbers.formatInteger(i.count, 2)}">01</div>
+                  <div class="easyTitle"><p><a href="'/article/' + ${b.id}" target="_blank" title="${b.title}" text="${b.title}">Java之SHA1加密</a>
+                  </p></div>
+              </div>
+          </div>
+        </div>
+
+      </div>
+      <div class="two_right">
+         <!-- <div class="newResource">
+              <p class="two_title">推荐资源</p>
+              <div class="newResourceList" id="newResourceList">
+                  &lt;!&ndash;<div class="resourceItem"><div class="resourceNum">01</div><div class="resourceTitle"><p><a href="" target="_blank">传智博客Java基础教程</a></p></div></div>&ndash;&gt;
+                  <div class="resourceItem"><div class="resourceNum">01</div><div class="resourceTitle"><p><a href="/iBlog/article.html?id=20" target="_blank">Redis面试总结</a></p></div></div><div class="resourceItem"><div class="resourceNum">02</div><div class="resourceTitle"><p><a href="/iBlog/article.html?id=77" target="_blank">输入框智能提示（一）</a></p></div></div><div class="resourceItem"><div class="resourceNum">03</div><div class="resourceTitle"><p><a href="/iBlog/article.html?id=44" target="_blank">Java面试中常涉及的前端知识</a></p></div></div><div class="resourceItem"><div class="resourceNum">04</div><div class="resourceTitle"><p><a href="/iBlog/article.html?id=70" target="_blank">分页插件（二）</a></p></div></div><div class="resourceItem"><div class="resourceNum">05</div><div class="resourceTitle"><p><a href="/iBlog/article.html?id=27" target="_blank">图片验证码工具类</a></p></div></div><div class="resourceItem"><div class="resourceNum">06</div><div class="resourceTitle"><p><a href="/iBlog/article.html?id=66" target="_blank">AOP实现Memcached注解缓存</a></p></div></div><div class="resourceItem"><div class="resourceNum">07</div><div class="resourceTitle"><p><a href="/iBlog/article.html?id=105" target="_blank">输入框智能提示（二）</a></p></div></div><div class="resourceItem"><div class="resourceNum">08</div><div class="resourceTitle"><p><a href="/iBlog/article.html?id=30" target="_blank">Linux下mysql5.7中文乱码</a></p></div></div><div class="resourceItem"><div class="resourceNum">09</div><div class="resourceTitle"><p><a href="/iBlog/article.html?id=72" target="_blank">Linux安装Mysql</a></p></div></div><div class="resourceItem"><div class="resourceNum">10</div><div class="resourceTitle"><p><a href="/iBlog/article.html?id=58" target="_blank">开心一笑（一）</a></p></div></div><div class="resourceItem"><div class="resourceNum">11</div><div class="resourceTitle"><p><a href="/iBlog/article.html?id=31" target="_blank">页面下拉自动加载实现</a></p></div></div><div class="resourceItem"><div class="resourceNum">12</div><div class="resourceTitle"><p><a href="/iBlog/article.html?id=29" target="_blank">面试总结</a></p></div></div><div class="resourceItem"><div class="resourceNum">13</div><div class="resourceTitle"><p><a href="/iBlog/article.html?id=43" target="_blank">java注解学习</a></p></div></div><div class="resourceItem"><div class="resourceNum">14</div><div class="resourceTitle"><p><a href="/iBlog/article.html?id=48" target="_blank">Redis 五种数据类型的使用场景</a></p></div></div><div class="resourceItem"><div class="resourceNum">15</div><div class="resourceTitle"><p><a href="/iBlog/article.html?id=41" target="_blank">MongoDB（二）</a></p></div></div><div class="resourceItem"><div class="resourceNum">16</div><div class="resourceTitle"><p><a href="/iBlog/article.html?id=28" target="_blank">面试题-笔试易错题</a></p></div></div><div class="resourceItem"><div class="resourceNum">17</div><div class="resourceTitle"><p><a href="/iBlog/article.html?id=40" target="_blank">MongoDB（一）</a></p></div></div>
+              </div>
+          </div>-->
+          <div class="clear"></div>
+          <div class="news">
+              <p class="two_title"><span text="${newsType}">科技</span>资讯<a class="two_more" href="http://tech.163.com/" target="_blank">更多+</a></p>
+              <div class="newsList" id="newsList">
+                  <div class="newsItem" each="n, i:${news}">
+                      <div class="newsPic">
+                          <a href="${n.doc_url}" target="_blank">
+                              <img src="${n.main_pic}"/>
+                          </a>
+                      </div>
+                      <div class="newsTitle">
+                          <a href="${n.doc_url}" target="_blank">
+                              <p text="${n.news_title}"></p>
+                          </a>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+    </div>
+  </div>
+  <div class="right">
+      <div class="rightBox classes">
+          <div class="rightTitle"><span style="color:#ca0c16;">┃</span>快速入口</div>
+          <div class="classesList" id="classesList">
+              <div each="c:${classes}" style="float: left">
+                  <a class="classesItem" href="@{'/articles/t-' + ${c.value}}" target="_blank" text="${c.key}">Java</a>
+              </div>
+          </div>
+      </div>
+      <div class="rightBox ad">
+          <img src="/images/a_img/a_300x100.png" width="95%"/>
+      </div>
+      <div class="rightTitle"><span style="color:#ca0c16;">┃</span>新闻热点</div>
+      <div class="rightBox newsClassesList" id="newsClassesList">
+          <a class="newsClassesItem" href="http://tech.163.com/" target="_blank">科技</a>
+          <a class="newsClassesItem" href="http://sports.163.com/" target="_blank">体育</a>
+          <a class="newsClassesItem" href="http://jiankang.163.com/" target="_blank">健康</a>
+          <a class="newsClassesItem" href="http://ent.163.com/" target="_blank">娱乐</a>
+          <a class="newsClassesItem" href="http://mobile.163.com/" target="_blank">手机</a>
+          <a class="newsClassesItem" href="http://money.163.com/" target="_blank">财经</a>
+          <a class="newsClassesItem" href="http://auto.163.com/" target="_blank">汽车</a>
+      </div>
+      <div class="rightTitle"><span style="color:#ca0c16;">┃</span>热文推荐</div>
+      <div class="rightBox scanArticlesList" id="scanArticlesList">
+          <div each="b, i:${upBlog}">
+              <a href="@{'/article/' + ${b.id}}" target="_blank" title="${b.title}" text="${b.title}">输入框智能提示</a><a text="${b.create_time}">2017-08-24</a>
+          </div>
+      </div>
+      <div class="rightBox contactUs">
+          <div class="rightTitle"><span style="color:#ca0c16;">┃</span>扫个红包</div>
+          <img src="/images/contactus00.png" width="300px" height="300px" title="QQ群号：661951590 \n管理员：\n  赵超：\n    电话：18701321850\n    Q Q：773134958"/>
+      </div>
+      <div class="rightBox friendLink">
+          <div class="rightTitle" title="友情链接"><span style="color:#ca0c16;">┃</span>友情链接</div>
+          <div class="friendLinkList" id="apply_url">
+              <div each="a, i : ${applyUrl}" style="float: left;">
+                  <a class="friendLink" href="@{${a.value}}" target="_blank" text="${a.key}"></a>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>
+<footer>
+    <div class="footer">
+        <div class="aboutSkill">
+            <div class="footerTitle">相关技术</div>
+            <div class="aboutSkillList">
+                <a href="https://www.baidu.com/s?wd=Java" target="_blank">Java</a><a href="https://www.baidu.com/s?wd=Android" target="_blank">Android</a>
+                <a href="https://www.baidu.com/s?wd=IOS" target="_blank">IOS</a><a href="https://www.baidu.com/s?wd=PHP" target="_blank">PHP</a>
+                <a href="https://www.baidu.com/s?wd=Python" target="_blank">Python</a><a href="https://www.baidu.com/s?wd=C++" target="_blank">C++</a>
+                <a href="https://www.baidu.com/s?wd=JavaScript" target="_blank">JavaScript</a><a href="https://www.baidu.com/s?wd=JQuery" target="_blank">JQuery</a>
+                <a href="https://www.baidu.com/s?wd=Linux" target="_blank">Linux</a><a href="https://www.baidu.com/s?wd=Web" target="_blank">Web</a>
+                <a href="https://www.baidu.com/s?wd=MySql" target="_blank">MySql</a><a href="https://www.baidu.com/s?wd=Oracle" target="_blank">Oracle</a>
+                <a href="https://www.baidu.com/s?wd=Redis" target="_blank">Redis</a><a href="https://www.baidu.com/s?wd=Memacached" target="_blank">Memacached</a>
+                <a href="https://www.baidu.com/s?wd=MongoDB" target="_blank">MongoDB</a><a href="https://www.baidu.com/s?wd=CSS" target="_blank">CSS</a>
+                <a href="https://www.baidu.com/s?wd=HTML5" target="_blank">HTML5</a><a href="https://www.baidu.com/s?wd=Spring" target="_blank">Spring</a>
+                <a href="https://www.baidu.com/s?wd=SpringMvc" target="_blank">SpringMvc</a><a href="https://www.baidu.com/s?wd=SpringBoot" target="_blank">SpringBoot</a>
+                <a href="https://www.baidu.com/s?wd=SpringData" target="_blank">SpringData</a><a href="https://www.baidu.com/s?wd=Mybatis" target="_blank">Mybatis</a>
+                <a href="https://www.baidu.com/s?wd=Hadoop" target="_blank">Hadoop</a><a href="https://www.baidu.com/s?wd=Hibernate" target="_blank">Hibernate</a>
+                <a href="https://www.baidu.com/s?wd=API" target="_blank">API</a>
+                <a href="https://www.baidu.com/s?wd=Eclipse" target="_blank">Eclipse</a><a href="https://www.baidu.com/s?wd=IntelliJ IDEA" target="_blank">IntelliJ IDEA</a>
+                <a href="https://www.baidu.com/s?wd=Docker" target="_blank">Docker</a><a href="https://www.baidu.com/s?wd=微信小程序" target="_blank">微信小程序</a>
+            </div>
+        </div>
+        <div class="director">
+            公司简介 | 招贤纳士 | 广告服务 | 联系方式 | 版权声明 | 法律顾问 | 问题报告 | 合作伙伴
+        </div>
+        <div class="bottom">
+            爱博客 Design by <span title="管理员：\n  赵超：\n    电话：18701321850\n    Q Q：773134958">iBlog</span> <br/>京ICP备17040452号
+            <!--<div class="cnzz_div">
+                <script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1262928682'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s13.cnzz.com/z_stat.php%3Fid%3D1262928682%26show%3Dpic1' type='text/javascript'%3E%3C/script%3E"));</script>
+            </div>-->
+            <div>
+                <script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1262928682'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s13.cnzz.com/z_stat.php%3Fid%3D1262928682%26show%3Dpic' type='text/javascript'%3E%3C/script%3E"));</script>
+            </div>
+        </div>
+    </div>
+</footer>
+<div id="tbox"> <a id="togbook" href="/article/1#commentText" title="留言吧！"></a> <a id="gotop" href="javascript:void(0)"></a> </div>
+<!--<iframe src="footer.html" frameborder="no" width="100%" height="250px" border="0" marginwidth="0" marginheight="0" scrolling="auto"></iframe>-->
+</body>
+</html>

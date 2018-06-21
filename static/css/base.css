@@ -1,0 +1,259 @@
+* {
+    margin: 0;
+    padding: 0;
+    color: #fff;
+    font-family: "Microsoft Yahei", Arial, Helvetica, sans-serif;
+    /*-webkit-user-select:none;-moz-user-select:none;-o-user-select:none;user-select:none;*/
+    /*-webkit-user-select:none;*/
+}
+body {
+    margin: 0 auto;
+    background: #333;
+    background: url('/images/iBlogBG5.jpg') repeat center 120px;
+}
+a {
+    text-decoration-line: none;
+    text-decoration: none;
+}
+/*顶部登录*/
+header {
+    width: 1200px;
+    margin: 0 auto;
+}
+.top {
+    width: 100%;
+    height: 30px;
+    line-height: 20px;
+    background: rgba(10,10,10,0.3);
+}
+.top .noLoginDiv, .top .loginDiv {
+    float: right;
+    padding: 2px;
+    margin-right: 5px;
+}
+.top .noLoginDiv a, .top .loginDiv a {
+    float: left;
+    margin-left: 10px;
+    font-size: 14px;
+}
+.top .noLoginDiv .noLogin {
+    color: #999;
+    cursor: text;
+}
+.top .noLoginDiv a:hover {
+    color: #1C3;
+}
+.top .loginDiv a:hover {
+    color: #1C3;
+}
+.top .loginDiv .hover {
+    color: #1C3;
+}
+.top .loginDiv {
+    display: none;
+    position: relative;
+}
+.gg {
+    width: 60%;
+    float: left;
+    padding: 2px;
+    margin-left: 8px;
+}
+.gg_a {
+    font-size: 14px;
+    color: #f74;
+    font-weight: bolder;
+}
+.gg_content {
+    font-size: 14px;
+    font-weight: 500;
+    color: #dde;
+}
+.gg_content * {
+    font-size: 14px;
+    font-weight: 500;
+    color: #dde;
+}
+.username img {
+    margin-top: 2px;
+}
+.msgNotice {
+    width: 150px;
+    max-height: 100px;
+    position: absolute;
+    top: 25px;
+    right: 2px;
+    border: 1px solid #444;
+    background: rgba(10,10,10,.4);
+    border-radius: 4px;
+    overflow-y: auto;
+    font-size: 12px;
+    display: none;
+}
+.msgNotice .msgItem a {
+    width: 93%;
+    font-size: 12px;
+    margin-left: 5px;
+    color: #cccccc;
+}
+.msgNotice .msgItem a:hover {
+    color: #fff;
+}
+.userMenu {
+    width: 80px;
+    max-height: 100px;
+    position: absolute;
+    top: 23px;
+    right: 96px;
+    /*border: 1px solid #444;*/
+    border: none;
+    /*border-top: none;*/
+    background: rgba(10,10,10,.2);
+    /*border-radius: 4px;*/
+    overflow-y: auto;
+    display: none;
+}
+.userMenu .menuItem {
+    width: 100%;
+    margin: 3px auto;
+    border-bottom: #555555;
+    text-align: center;
+    height: 20px;
+}
+.userMenu .menuItem a {
+    margin-left: 0px;
+    width: 100%;
+    font-size: 14px;
+    color: #cccccc;
+}
+.userMenu .menuItem a:hover {
+    color: #fff;
+    background: #666;
+    border-radius: 2px;
+}
+#username {
+    min-width: 80px;
+    text-align: center;
+}
+/*logo*/
+.logo {
+    height: 80px;
+    margin: 0px 10px 10px 0px;
+}
+/*导航栏*/
+.menu {
+    height: 40px;
+    line-height: 40px;
+    /*background: #222222;*/
+    border-radius: 2px;
+    margin: 15px 0 10px 0;
+    /*opacity: 0.8;*/
+}
+.menu a {
+    float: left;
+    width: 120px;
+    text-align: center;
+    font-weight: bolder;
+    margin-left: 10px;
+    /*margin-right: 10px;*/
+}
+.menu a:hover {
+    background: #000000;
+    box-shadow: 0px 0px 5px #a9a9a9, inset 1px 1px 1px 1px rgba(0,0,0,.7);
+    border-radius: 5px;
+}
+a.current {
+    background: #000000;
+    box-shadow: 0px 0px 5px #a9a9a9, inset 1px 1px 1px 1px rgba(0,0,0,.7);
+    border-radius: 5px;
+}
+/*主体*/
+.main {
+    overflow: auto;
+    width: 1200px;
+    margin: 0 auto;
+    padding-left: 3px;
+    padding-right: 3px;
+    background: rgba(10,10,10,.2);
+}
+.main div {
+    overflow: auto;
+}
+/*底部*/
+footer {
+    color: #d7d8d9;
+    width: 100%;
+    min-width: 1200px;
+    /*background: #222222;*/
+    background: rgba(10,10,10,.4);
+    min-height: 100px;
+}
+footer div {
+    clear: both;
+}
+.footer {
+    width: 1200px;
+    margin: 0px auto;
+    padding: 5px 0;
+}
+.footerTitle {
+    font-size: 16px;
+    height: 30px;
+    line-height: 30px;
+    border-bottom: 1px solid #444;
+}
+.aboutSkill {
+    margin: 10px 0;
+}
+.aboutSkillList {
+    width: 100%;
+    padding: 5px 0;
+    height: 45px;
+}
+.aboutSkillList a {
+    color: #999;
+    float: left;
+    font-size: 14px;
+    height: 20px;
+    line-height: 20px;
+    padding: 0 5px;
+}
+.director, .bottom {
+    width: 100%;
+    color: #9b9ea0;
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 15px;
+}
+
+/*返回顶部*/
+#tbox { width: 54px; float: right; position: fixed; right: 50px; bottom: 15px; _position: absolute; _bottom: auto; _top:expression(eval(document.documentElement.scrollTop+document.documentElement.clientHeight-this.offsetHeight-(parseInt(this.currentStyle.marginTop, 10)||0)-(parseInt(this.currentStyle.marginBottom, 10)||0)));
+    _margin-bottom: 15px; }
+#togbook, #gotop { width: 54px; height: 56px; display: block; background:url(../images/icons.png) no-repeat  #111 ;box-shadow: 0px 1px 0px rgba(255,255,255,.1), inset 0px 1px 1px rgba(0,0,0,.7); border-radius: 6px;}
+#togbook { margin: 5px 0 ;background-position:10px -407px;}
+#gotop {background-position:12px -365px;}
+#togbook:hover, #gotop:hover { opacity: 0.5 }
+
+.nothing {
+    width: 90%;
+    margin: 0 auto;
+    text-align: center;
+    color: #f00;
+    font-size: 16px;
+    background: rgba(10,10,10,.5);
+    font-weight: bolder;
+    height: 35px;
+    line-height: 35px;
+}
+
+#togbook {
+    /*display: none;*/
+}
+/*
+code {
+    display: inline-block;
+    background-color: #8D8D8D;
+    border-radius: 3px;
+    padding: 3px 5px;
+    margin: 0 3px;
+}*/
