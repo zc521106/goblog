@@ -34,8 +34,6 @@ func (c *MainController) Get() {
 	} else {
 		beego.Debug(" error index ")
 	}
-	c.Data["Website"] = "beego.me"
-	c.Data["Email"] = "astaxie@gmail.com"
 	c.TplName = "index.html"
 }
 
