@@ -46,7 +46,7 @@
 <header>
   <div class="top">
       <div class="gg">
-          <span class="gg_a">公告：<span class="gg_content" id="gg_content" utext="${announcement}">9999999999999</span></span>
+          <span class="gg_a">公告：<span class="gg_content" id="gg_content">{{str2html .announcement}}</span></span>
       </div>
     <!--<div class="noLoginDiv">
       <a class="noLogin" href="javascript:;">您还未登录！</a><a class="login" id="doLogin" href="javascript:;">登录</a><a class="register" id="doRegister" href="../admin/register.html" target="_blank">注册</a>
@@ -80,13 +80,13 @@
   <div class="left">
     <div class="one">
       <div class="one_left" id="topInfo1">
-          <a href="/article/{{.firstBlog.Id}}" target="_blank"> <img width="100%" height="250px" src="{{.firstBlog.MainPic}}">
-              <p class="left_title" title="{{.firstBlog.Title}}">{{.firstBlog.Title}}</p>
-              <p class="left_content">{{.firstBlog.SimpleContent}}</p>
+          <a href="/article/{{.firstArticle.Id}}" target="_blank"> <img width="100%" height="250px" src="{{.firstArticle.MainPic}}">
+              <p class="left_title" title="{{.firstArticle.Title}}">{{.firstArticle.Title}}</p>
+              <p class="left_content">{{.firstArticle.SimpleContent}}</p>
           </a>
       </div>
       <div class="one_right">
-      {{range .hotBlog}}
+      {{range .hotArticles}}
         <ul class="right_list" id="topInfo2">
             <li><a href="/article/{{.Id}}" target="_blank" title="{{.Title}}">{{.Title}}</a><a
                     href="javascript:;">{{date .CreateTime "Y-m-d"}}</a>
@@ -100,14 +100,16 @@
         <div class="newEasy">
           <p class="two_title">最新博文<a class="two_more" href="/articles.html" target="_blank">更多+</a></p>
           <div class="newEasyList" id="newEasyList">
-              <div class="easyItem" each="b, i:${newBlog}">
-                  <div class="easyNum" text="${#numbers.formatInteger(i.count, 2)}">01</div>
-                  <div class="easyTitle"><p><a href="'/article/' + ${b.id}" target="_blank" title="${b.title}" text="${b.title}">Java之SHA1加密</a>
-                  </p></div>
-              </div>
+            {{range $i, $e := .newArticles}}
+                <div class="easyItem">
+                  <div class="easyNum">{{$i}}</div>
+                  <div class="easyTitle">
+                      <p><a href="/article/{{.Id}}" target="_blank" title="{{.Title}}">{{.Title}}</a></p>
+                  </div>
+                </div>
+            {{end}}
           </div>
         </div>
-
       </div>
       <div class="two_right">
          <!-- <div class="newResource">
@@ -119,20 +121,22 @@
           </div>-->
           <div class="clear"></div>
           <div class="news">
-              <p class="two_title"><span text="${newsType}">科技</span>资讯<a class="two_more" href="http://tech.163.com/" target="_blank">更多+</a></p>
+              <p class="two_title"><span>科技</span>资讯<a class="two_more" href="http://tech.163.com/" target="_blank">更多+</a></p>
               <div class="newsList" id="newsList">
-                  <div class="newsItem" each="n, i:${news}">
+                  {{range .news}}
+                  <div class="newsItem">
                       <div class="newsPic">
-                          <a href="${n.doc_url}" target="_blank">
-                              <img src="${n.main_pic}"/>
+                          <a href="{{.DocUrl}}" target="_blank">
+                              <img src="{{.MainPic}}"/>
                           </a>
                       </div>
                       <div class="newsTitle">
-                          <a href="${n.doc_url}" target="_blank">
-                              <p text="${n.news_title}"></p>
+                          <a href="{{.DocUrl}}" target="_blank">
+                              <p>{{.NewsTitle}}</p>
                           </a>
                       </div>
                   </div>
+                  {{end}}
               </div>
           </div>
       </div>
@@ -142,9 +146,11 @@
       <div class="rightBox classes">
           <div class="rightTitle"><span style="color:#ca0c16;">┃</span>快速入口</div>
           <div class="classesList" id="classesList">
-              <div each="c:${classes}" style="float: left">
-                  <a class="classesItem" href="@{'/articles/t-' + ${c.value}}" target="_blank" text="${c.key}">Java</a>
-              </div>
+              {{range .classes}}
+                <div style="float: left">
+                  <a class="classesItem" href="/articles/t-{{.Value}}" target="_blank">{{.Key}}</a>
+                </div>
+              {{end}}
           </div>
       </div>
       <div class="rightBox ad">
@@ -162,9 +168,9 @@
       </div>
       <div class="rightTitle"><span style="color:#ca0c16;">┃</span>热文推荐</div>
       <div class="rightBox scanArticlesList" id="scanArticlesList">
-          <div each="b, i:${upBlog}">
-              <a href="@{'/article/' + ${b.id}}" target="_blank" title="${b.title}" text="${b.title}">输入框智能提示</a><a text="${b.create_time}">2017-08-24</a>
-          </div>
+          {{range .upArticles}}
+              <a href="/article/{{.Id}}" target="_blank" title="{{.Title}}">{{.Title}}</a><a>{{date .CreateTime "Y-m-d"}}</a>
+          {{end}}
       </div>
       <div class="rightBox contactUs">
           <div class="rightTitle"><span style="color:#ca0c16;">┃</span>扫个红包</div>
@@ -173,9 +179,9 @@
       <div class="rightBox friendLink">
           <div class="rightTitle" title="友情链接"><span style="color:#ca0c16;">┃</span>友情链接</div>
           <div class="friendLinkList" id="apply_url">
-              <div each="a, i : ${applyUrl}" style="float: left;">
-                  <a class="friendLink" href="@{${a.value}}" target="_blank" text="${a.key}"></a>
-              </div>
+            {{range .urls}}
+                <a class="friendLink" href="{{.Value}}" target="_blank">{{.Key}}</a>
+            {{end}}
           </div>
       </div>
   </div>
